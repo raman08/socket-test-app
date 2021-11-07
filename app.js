@@ -14,7 +14,7 @@ const io = require('socket.io')(server, {
 	},
 });
 
-const { instrument } = require('@socket.io/admin-ui');
+//const { instrument } = require('@socket.io/admin-ui');
 
 io.on('connection', socket => {
 	console.log(socket.id);
@@ -23,7 +23,8 @@ io.on('connection', socket => {
 		console.log(request);
 		setTimeout(() => {
 			const result = { value: request * 2 };
-			cb(result);
+			socket.emit('key-pressed',result);
+			//cb(result);
 		}, 3000);
 	});
 });
@@ -37,4 +38,4 @@ app.get('/status', (req, res, next) => {
 
 // httpserver.listen(3000);
 
-instrument(io, { auth: false });
+//instrument(io, { auth: false });
