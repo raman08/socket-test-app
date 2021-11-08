@@ -21,7 +21,7 @@ io.on('connection', socket => {
 
 	socket.on('key-pressed', (request, cb) => {
 		console.log(request);
-		const result = { value: request * 2 };
+		const result = { value: request };
 		// socket.emit('key-pressed',result);
 		cb(result);
 	});
