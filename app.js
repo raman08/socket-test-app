@@ -16,11 +16,9 @@ io.on('connection', socket => {
 
 	socket.on('key-pressed', (request, cb) => {
 		console.log(request);
-		setTimeout(() => {
-			const result = { value: request * 2 };
-			socket.emit('key-pressed',result);
-			//cb(result);
-		}, 3000);
+		const result = { value: request * 2 };
+		// socket.emit('key-pressed',result);
+		cb(result);
 	});
 });
 
